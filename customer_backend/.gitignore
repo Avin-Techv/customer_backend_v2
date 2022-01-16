@@ -1,0 +1,11 @@
+#ignore all pyc files
+*.pyc
+
+#ignore ide files
+/.vscode
+
+#ignore migration folders
+customer_crud/migrations/
+
+# ignore env files
+customer_backend/.env

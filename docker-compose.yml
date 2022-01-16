@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8041:8041"
+    volumes:
+      - ./app:/app
+      - app-customer-crud-volume:/customer_crud/migrations
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8041"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=customer_backend_db
+      - DB_USER=customer_backend_user
+      - DB_PASS=customer_backend_pass
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.8-alpine
+    environment:
+      - POSTGRES_DB=customer_backend_db
+      - POSTGRES_USER=customer_backend_user
+      - POSTGRES_PASSWORD=customer_backend_pass
+    ports:
+      - "5444:5432"
+    volumes:
+    - db-volume:/var/lib/postgresql/data
+
+volumes:
+  db-volume:
+  media-volume:
+  app-customer-crud-volume:
+
