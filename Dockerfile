@@ -45,8 +45,3 @@ RUN apk del .tmp-build-deps
 RUN mkdir /customer_backend; exit 0
 WORKDIR /customer_backend
 COPY ./customer_backend /customer_backend
-
-# [Security] Limit the scope of user who run the docker image
-#RUN adduser -D user
-
-#USER user

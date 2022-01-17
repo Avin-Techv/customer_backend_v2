@@ -1,8 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
-# from django.contrib.auth.models import User
 
 from rest_framework import status
-# from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -13,16 +11,6 @@ from .models import Customer
 from .serializers import CustomerSerializer
 
 # Create your views here.
-
-
-# class UserList(generics.ListAPIView):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-
-
-# class UserDetail(generics.RetrieveAPIView):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
 
 
 class CustomRegisterView(RegisterView):
